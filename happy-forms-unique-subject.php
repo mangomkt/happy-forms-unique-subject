@@ -24,9 +24,13 @@ add_filter( 'happyforms_email_alert', function( $email_message ) {
     $name_label = 'First Name';
     $name_value = '';
 
+    $email_label = 'Email Address';
+    $email_value = '';
+
     if ( isset( $parts[$name_label] ) ) {
         $name_value = $message_parts[$parts[$name_label]];
-        $subject .= ' — ' . $name_value;
+        $email_value = $message_parts[$parts[$email_label]];
+        $subject .= ' — ' . $name_value . '(' . $email_value . ')';
 
         $email_message->set_from_name( $name_value );
     }
